@@ -17,17 +17,17 @@ export class AppComponent {
   onLogOutClicked() {
     this.accountService.getLogout().subscribe({
 
-      next: (response:string) => {
+      next: (response: string) => {
         this.accountService.currentUserName = null;
-
+        localStorage.removeItem("token");
         this.router.navigate(['/login']);
       },
 
-      error: (error) => { console.log(error);},
+      error: (error) => { console.log(error); },
 
-      complete: () => {},
+      complete: () => { },
     });
   }
 
-  
+
 }
