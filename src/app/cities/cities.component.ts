@@ -18,7 +18,7 @@ export class CitiesComponent {
 
   constructor(private citiesService: CitiesService) {
     this.postCityForm = new FormGroup({
-      cityName: new FormControl(null, [ Validators.required ])
+      cityName: new FormControl(null, [Validators.required])
     });
 
     this.putCityForm = new FormGroup({
@@ -26,7 +26,7 @@ export class CitiesComponent {
     });
   }
 
-  get putCityFormArray() : FormArray {
+  get putCityFormArray(): FormArray {
     return this.putCityForm.get("cities") as FormArray;
   }
 
@@ -95,7 +95,7 @@ export class CitiesComponent {
   }
 
   //Executes when the clicks on 'Edit' button the for the particular city
-  editClicked(city: City) : void {
+  editClicked(city: City): void {
     this.editCityID = city.cityID;
   }
 
@@ -115,11 +115,11 @@ export class CitiesComponent {
         console.log(error);
       },
 
-      complete: () => {},
+      complete: () => { },
     });
   }
 
-  deleteClicked(city: City, i: number) : void {
+  deleteClicked(city: City, i: number): void {
     if (confirm(`Are you sure to delete this city: ${city.cityName}?`)) {
       this.citiesService.deleteCity(city.cityID).subscribe({
         next: (response: string) => {
@@ -136,5 +136,9 @@ export class CitiesComponent {
         complete: () => { },
       })
     }
+  }
+
+  refreshClicked(): void {
+
   }
 }
