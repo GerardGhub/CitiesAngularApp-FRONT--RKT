@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { City } from "../models/city";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { AccountService } from './account.service';
 
 const API_BASE_URL: string = "https://localhost:7221/api/";
 
@@ -11,7 +12,7 @@ const API_BASE_URL: string = "https://localhost:7221/api/";
 export class CitiesService {
   cities: City[] = [];
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private accountService: AccountService) {
   }
 
   public getCities(): Observable<City[]> {
