@@ -19,23 +19,27 @@
             <td>{{i+1}}</td>
 
             <td [formGroupName]="i">
-              <input type="text" formControlName="cityName" [ngClass]="{ 'border-less-textbox': city.cityID != editCityID, 'form-input': city.cityID == editCityID }" [disableControl]="city.cityID != editCityID" />
+              <input type="text" formControlName="cityName"
+                [ngClass]="{ 'border-less-textbox': city.cityID != editCityID, 'form-input': city.cityID == editCityID }"
+                [disableControl]="city.cityID != editCityID" />
             </td>
 
             <td style="width:200px">
-              <button class="button button-blue-back" (click)="editClicked(city)" *ngIf="city.cityID != editCityID" type="button">Edit</button>
+              <button class="button button-blue-back" (click)="editClicked(city)" *ngIf="city.cityID != editCityID"
+                type="button">Edit</button>
 
-              <button class="button button-blue-back" (click)="updateClicked(i)" *ngIf="city.cityID == editCityID" type="submit">Update</button>
+              <button class="button button-blue-back" (click)="updateClicked(i)" *ngIf="city.cityID == editCityID"
+                type="submit">Update</button>
 
-              <button class="button button-red-back ml" (click)="deleteClicked(city, i)" *ngIf="city.cityID != editCityID" type="button">Delete</button>
+              <button class="button button-red-back ml" (click)="deleteClicked(city, i)"
+                *ngIf="city.cityID != editCityID" type="button">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <button type="button" class="button button-blue-back mt"
-    (click)="refreshClicked()">Refresh</button>
+    <button type="button" class="button button-blue-back mt" (click)="refreshClicked()">Refresh</button>
 
   </div>
 
@@ -57,7 +61,9 @@
           <div class="flex-1">
             <input type="text" class="form-input" formControlName="cityName" />
 
-            <span class="text-red" *ngIf="(postCity_CityNameControl.touched || isPostCityFormSubmitted) && (postCity_CityNameControl.errors?.['required'])">City Name can't be blank</span>
+            <span class="text-red"
+              *ngIf="(postCity_CityNameControl.touched || isPostCityFormSubmitted) && (postCity_CityNameControl.errors?.['required'])">City
+              Name can't be blank</span>
           </div>
         </div>
 
@@ -74,6 +80,3 @@
   </div>
   <!-- right box ends -->
 </div>
-
-
-
